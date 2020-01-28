@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import book.BookList;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import static org.junit.Assert.*;
 public class BibliotecaAppTest {
 
     BibliotecaApp bibliotecaApp = new BibliotecaApp();
+
+
 
     @Test
     public void shouldShowWelcomeMessage(){
@@ -24,18 +27,22 @@ public class BibliotecaAppTest {
     @Test
     public void shouldShowBookList(){
 
+        BookList bookList = new BookList();
+
         String book1 = "Harry Potter";
         String book2 = "The Shining";
-        List<String> bookList = new ArrayList<String>();
+        List<String> bk = new ArrayList<String>();
 
-        bookList.add(book1);
-        bookList.add(book2);
+        bk.add(book1);
+        bk.add(book2);
 
-        bibliotecaApp.showBookList(bookList);
+        bookList.showBookList(bk);
 
         assertTrue("Harry Potter, The Shinning", true);
 
     }
+
+
 
 
 

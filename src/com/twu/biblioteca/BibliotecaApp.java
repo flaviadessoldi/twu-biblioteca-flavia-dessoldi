@@ -1,20 +1,28 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
 
-        welcomeMessage();
+        welcomeMessage("Welcome to Biblioteca!");
+
+
 
 
     }
 
-    public static void welcomeMessage(){
-        String welcome = "Welcome to Biblioteca";
+    public static void welcomeMessage(String message){
 
-        System.out.println(welcome);
+        System.out.println(message);
     }
+
+
+
+
+
 
 
 }

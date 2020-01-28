@@ -1,30 +1,26 @@
 package com.twu.biblioteca;
 
+import book.Book;
 import book.BookList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BibliotecaApp {
 
     public static void main(String[] args) {
 
-        BookList bookList = new BookList();
-
-        System.out.println("Hello, world!");
-
         welcomeMessage("Welcome to Biblioteca!");
 
-        List<String> bk = new ArrayList<String>();
-        String book1 = "Harry Potter";
-        String book2 = "The Shining";
+        BookList bk = new BookList();
 
-        bk.add(book1);
-        bk.add(book2);
+        Book book1 = new Book ("Harry Potter", "JK Rowling", "1998");
+        Book book2 = new Book ("A hora da estrela", "Clarice Lispector", "1950");
 
-        bookList.showBookList(bk);
+        List<Book> listBook = Arrays.asList(book1, book2);
 
-
+        bk.printBookList(listBook);
 
     }
 
@@ -34,6 +30,7 @@ public class BibliotecaApp {
     }
 
 
+    }
 
 
 
@@ -41,5 +38,7 @@ public class BibliotecaApp {
 
 
 
-}
+
+
+
 

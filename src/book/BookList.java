@@ -4,12 +4,19 @@ import java.util.List;
 
 public class BookList {
 
-    List<String> bookList;
+    List<Book> bookList;
 
-    public static void showBookList(List<String> bookList){
+    public void printBookList(List<Book> bookList) {
 
-        System.out.println(bookList);
+        System.out.println("                     Book List");
+        System.out.println("===============================================\n");
+
+        System.out.printf("%-20s %-20s %-20s\n", "Book", "Author", "Year");
+
+        for (int index = 0; index < bookList.size(); index++) {
+
+            System.out.printf("%-20s %-20s %-20s\n", bookList.get(index).getTitle(), bookList.get(index).getAuthor(), bookList.get(index).getYear());
+
+        }
     }
-
-
 }

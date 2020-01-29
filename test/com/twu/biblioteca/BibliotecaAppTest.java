@@ -22,6 +22,17 @@ public class BibliotecaAppTest {
 
     }
 
+    @Test
+
+    public void shouldShowMenuOptions(){
+
+
+    }
+
+    @Test
+    public void shouldSelectOption(){
+
+    }
 
 
 

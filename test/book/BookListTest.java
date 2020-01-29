@@ -35,12 +35,7 @@ public class BookListTest {
 
         BookList bookList = new BookList();
 
-        Book book1 = new Book (1, "Harry Potter", "JK Rowling", "1998");
-
-        List<Book> listBook = Arrays.asList(book1);
-
-        bookList.printBookList(listBook);
-
+        bookList.printBookList();
 
        assertThat(outContent.toString(), containsString("Harry Potter"));
 

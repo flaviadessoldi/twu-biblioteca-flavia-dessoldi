@@ -1,12 +1,27 @@
 package book;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BookList {
 
-    List<Book> bookList;
+    private List<Book> bookList;
 
-    public void printBookList(List<Book> bookList) {
+    public BookList() {
+        Book book1 = new Book(1, "Harry Potter", "JK Rowling", "1998");
+        Book book2 = new Book(2, "A hora da estrela", "Clarice Lispector", "1950");
+
+        this.bookList = new ArrayList<Book>(Arrays.asList(book1, book2));
+    }
+
+
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void printBookList() {
 
         System.out.println("                     Book List");
         System.out.println("===============================================\n");

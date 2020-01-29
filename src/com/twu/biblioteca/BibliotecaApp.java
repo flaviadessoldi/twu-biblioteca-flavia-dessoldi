@@ -12,7 +12,6 @@ public class BibliotecaApp {
 
         lb.welcomeMessage("Welcome to Biblioteca!");
 
-
         int option = 1;
         while(option != 0){
             lb.showMenuOptions();

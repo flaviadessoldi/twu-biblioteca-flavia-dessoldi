@@ -81,7 +81,13 @@ public class LibrarianTest {
 
         System.exit(0);
 
+    }
 
+    @Test
+    public void shouldCheckoutBook(){
+        lb.chooseOption(2);
+
+        
     }
 
 

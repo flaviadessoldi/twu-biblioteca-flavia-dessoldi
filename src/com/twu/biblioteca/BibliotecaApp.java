@@ -15,7 +15,7 @@ public class BibliotecaApp {
         int option = 1;
         while(option != 0){
             lb.showMenuOptions();
-            System.out.println("Please, choose one option");
+            System.out.println("Please, choose your option. ");
             Scanner scanner = new Scanner(System.in);
             option = scanner.nextInt();
             lb.chooseOption(option);

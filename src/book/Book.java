@@ -2,14 +2,24 @@ package book;
 
 public class Book {
 
+    private int idBook;
     private String title;
     private String author;
     private String year;
 
-    public Book(String title, String author, String year) {
+    public Book(int idBook, String title, String author, String year) {
+        this.idBook = idBook;
         this.title = title;
         this.author = author;
         this.year = year;
+    }
+
+    public int getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
     }
 
     public String getTitle() {
@@ -36,12 +46,15 @@ public class Book {
         this.year = year;
     }
 
-
     @Override
     public String toString() {
         return
+                "IdBook: " + idBook + " | " +
                 "Title: " + title + " | " +
                 "Author: " + author + " | " +
                 "Year: " + year + "\n";
     }
+
+
+
 }

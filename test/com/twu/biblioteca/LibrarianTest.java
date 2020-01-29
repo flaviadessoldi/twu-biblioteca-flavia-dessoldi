@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import book.BookList;
+import librarian.Librarian;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -15,9 +16,9 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
-public class BibliotecaAppTest {
+public class LibrarianTest {
 
-    BibliotecaApp bibliotecaApp = new BibliotecaApp();
+    Librarian lb = new Librarian();
 
     private PrintStream sysOut;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -37,7 +38,7 @@ public class BibliotecaAppTest {
     public void shouldShowWelcomeMessage(){
 
 
-        bibliotecaApp.welcomeMessage("Welcome to Biblioteca!");
+        lb.welcomeMessage("Welcome to Biblioteca!");
 
         assertEquals(outContent.toString(), "Welcome to Biblioteca!");
 
@@ -46,7 +47,7 @@ public class BibliotecaAppTest {
     @Test
 
     public void shouldShowMenuOptions(){
-        bibliotecaApp.showMenuOptions();
+        lb.showMenuOptions();
 
         assertThat(outContent.toString(), containsString("1 - List books"));
 
@@ -56,7 +57,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldSelectCorrectOption(){
 
-        bibliotecaApp.chooseOption(1);
+        lb.chooseOption(1);
 
         assertThat(outContent.toString(), containsString("Author"));
 
@@ -66,7 +67,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldShowMessageWhenChooseInvalidOption(){
 
-        bibliotecaApp.chooseOption(8);
+        lb.chooseOption(8);
 
         assertThat(outContent.toString(), containsString("Select a valid option!"));
 
@@ -76,7 +77,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldQuitApplicationWhenChooseZero(){
 
-       bibliotecaApp.chooseOption(0);
+       lb.chooseOption(0);
 
         System.exit(0);
 

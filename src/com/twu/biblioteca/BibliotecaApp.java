@@ -37,7 +37,7 @@ public class BibliotecaApp {
         System.out.println("      Menu Options");
         System.out.println("=======================\n");
         System.out.println("1 - List books");
-
+        System.out.println("0 - Quit");
     }
 
     public static void chooseOption(int option){
@@ -53,7 +53,8 @@ public class BibliotecaApp {
 
                 bk.printBookList(listBook);
                 break;
-
+            case 0 :
+                System.exit(0);
             default:
                 System.out.println("Select a valid option!");
                 break;

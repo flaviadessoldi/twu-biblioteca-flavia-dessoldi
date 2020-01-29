@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import book.BookList;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class BibliotecaAppTest {
@@ -67,6 +69,16 @@ public class BibliotecaAppTest {
         bibliotecaApp.chooseOption(8);
 
         assertThat(outContent.toString(), containsString("Select a valid option!"));
+
+    }
+
+
+    @Test
+    public void shouldQuitApplicationWhenChooseZero(){
+
+       bibliotecaApp.chooseOption(0);
+
+        System.exit(0);
 
 
     }

@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void shouldSelectCorrectOption(){
+    public void shouldSelectCorrectOption() throws IOException {
 
         lb.chooseOption(1);
 
@@ -65,7 +66,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void shouldShowMessageWhenChooseInvalidOption(){
+    public void shouldShowMessageWhenChooseInvalidOption() throws IOException {
 
         lb.chooseOption(8);
 
@@ -75,7 +76,7 @@ public class LibrarianTest {
 
 
     @Test
-    public void shouldQuitApplicationWhenChooseZero(){
+    public void shouldQuitApplicationWhenChooseZero() throws IOException {
 
        lb.chooseOption(0);
 
@@ -84,7 +85,7 @@ public class LibrarianTest {
     }
 
     @Test
-    public void shouldCheckoutBook(){
+    public void shouldCheckoutBook() throws IOException {
         lb.chooseOption(2);
 
 

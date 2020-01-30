@@ -3,7 +3,11 @@ package librarian;
 import book.Book;
 import book.BookList;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Librarian {
 
@@ -21,7 +25,7 @@ public class Librarian {
         System.out.println("0 - Quit");
     }
 
-    public static void chooseOption(int option) {
+    public static void chooseOption(int option) throws IOException {
 
         switch (option) {
             case 1:
@@ -41,22 +45,24 @@ public class Librarian {
         }
     }
 
-    public static void checkoutBook() {
+    public static void checkoutBook() throws IOException {
 
         BookList bk = new BookList();
 
         System.out.println("Enter the book");
-        Scanner scanner = new Scanner(System.in);
-        String bookCheck = scanner.next();
 
-            if (bk.getBookList().contains(bookCheck)) {
-                System.out.println("The book " + bookCheck + " has been checked out!");
-                bk.getBookList().remove(bookCheck);
-            } else {
-                System.out.println("The book " + bookCheck + " is not in the library. Please choose a different book to be checked out");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            }
-        }
+        String bookCheck = reader.readLine();
+
+        Book b = bk.getBookList().stream().filter(book -> bookCheck.toString().equals(book.getTitle().toString())).findFirst().orElse(null);
+
+        b.setFlag(false);
+
+        System.out.println("The book " + bookCheck + " has been checked out!");
+        bk.printBookList();
+
+    }
 
 
 

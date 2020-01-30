@@ -2,13 +2,13 @@ package book;
 
 public class Book {
 
-    private int idBook;
+    private boolean flag;
     private String title;
     private String author;
     private String year;
 
-    public Book(int idBook, String title, String author, String year) {
-        this.idBook = idBook;
+    public Book(boolean flag, String title, String author, String year) {
+        this.flag = flag;
         this.title = title;
         this.author = author;
         this.year = year;
@@ -18,12 +18,12 @@ public class Book {
 
     }
 
-    public int getIdBook() {
-        return idBook;
+    public boolean getFlag() {
+        return flag;
     }
 
-    public void setIdBook(int idBook) {
-        this.idBook = idBook;
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     public String getTitle() {
@@ -53,7 +53,7 @@ public class Book {
     @Override
     public String toString() {
         return
-                "IdBook: " + idBook + " | " +
+
                 "Title: " + title + " | " +
                 "Author: " + author + " | " +
                 "Year: " + year + "\n";

@@ -3,8 +3,6 @@ package librarian;
 import book.Book;
 import book.BookList;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Librarian {
@@ -25,15 +23,13 @@ public class Librarian {
 
     public static void chooseOption(int option) {
 
-        int idBook = 1;
-
         switch (option) {
             case 1:
                 BookList bk = new BookList();
                 bk.printBookList();
                 break;
             case 2:
-                    checkoutBook(idBook);
+                    checkoutBook();
 
             case 3:
                 returnBook();
@@ -45,33 +41,47 @@ public class Librarian {
         }
     }
 
-    public static void checkoutBook(int idBook){
+    public static void checkoutBook() {
 
         BookList bk = new BookList();
 
-        System.out.println("Enter the IdBook");
+        System.out.println("Enter the book");
         Scanner scanner = new Scanner(System.in);
-        idBook = scanner.nextInt();
+        String bookCheck = scanner.next();
 
-        for (int i=0; i< bk.getBookList().size(); i++) {
-
-            if (idBook == bk.getBookList().indexOf(i)) {
-                System.out.println("Success!");
+            if (bk.getBookList().contains(bookCheck)) {
+                System.out.println("The book " + bookCheck + " has been checked out!");
+                bk.getBookList().remove(bookCheck);
             } else {
-                System.out.println("Sorry! Book unavailable!");
+                System.out.println("The book " + bookCheck + " is not in the library. Please choose a different book to be checked out");
+
             }
         }
 
 
+
+        public static void returnBook () {
+//        BookList bk = new BookList();
+//
+//        System.out.println("Enter book title to be returned: ");
+//        Scanner scanner = new Scanner(System.in);
+//        String bookCheckIn = scanner.next();
+//
+//        if(bk.getBookList().contains(bookCheckIn))
+//        {
+//            bk.getBookList().add(bookCheckIn);
+//            System.out.println("-----" + bookCheckIn + " has been returned!-----");
+//
+//        }
+//        else
+//            System.out.println(bookCheckIn + " is not in the library. Please enter "
+//                    + "a different book to be checked out");
+        }
     }
 
-    public static void returnBook(){
-
-    }
 
 
 
 
 
-}
 

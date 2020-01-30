@@ -87,7 +87,7 @@ public class LibrarianTest {
     public void shouldCheckoutBook(){
         lb.chooseOption(2);
 
-        
+
     }
 
 

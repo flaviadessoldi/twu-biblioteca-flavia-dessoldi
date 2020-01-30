@@ -11,15 +11,17 @@ public class BookList {
     public BookList() {
         Book book1 = new Book(1, "Harry Potter", "JK Rowling", "1998");
         Book book2 = new Book(2, "A hora da estrela", "Clarice Lispector", "1950");
+        Book book3 = new Book(3, "Franny e Zoey", "J.D. Salinger", "1940");
 
-        this.bookList = new ArrayList<Book>(Arrays.asList(book1, book2));
+        this.bookList = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
     }
-
 
 
     public List<Book> getBookList() {
-        return bookList;
+
+        return this.bookList;
     }
+
 
     public void printBookList() {
 

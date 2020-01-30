@@ -14,6 +14,10 @@ public class Book {
         this.year = year;
     }
 
+    public Book(){
+
+    }
+
     public int getIdBook() {
         return idBook;
     }

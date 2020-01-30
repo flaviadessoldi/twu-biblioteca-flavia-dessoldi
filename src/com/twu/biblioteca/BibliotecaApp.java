@@ -12,7 +12,7 @@ public class BibliotecaApp {
 
         Librarian lb = new Librarian();
 
-        lb.welcomeMessage("Welcome to Biblioteca!");
+        lb.welcomeMessage("=ˆ.ˆ= Welcome to Biblioteca! =ˆ.ˆ=\n");
 
         int option = 1;
         while(option != 0){

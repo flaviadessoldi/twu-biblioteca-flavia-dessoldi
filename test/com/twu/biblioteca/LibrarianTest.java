@@ -1,21 +1,17 @@
 package com.twu.biblioteca;
 
-import book.BookList;
 import librarian.Librarian;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class LibrarianTest {
 
@@ -86,8 +82,10 @@ public class LibrarianTest {
 
     @Test
     public void shouldCheckoutBook() throws IOException {
-        lb.chooseOption(2);
 
+        lb.checkoutBook();
+
+        assertThat(outContent.toString(), containsString("checked out!"));
 
     }
 

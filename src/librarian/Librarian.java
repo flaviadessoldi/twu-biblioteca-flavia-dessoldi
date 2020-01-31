@@ -25,6 +25,7 @@ public class Librarian {
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
         System.out.println("4 - List Movies");
+        System.out.println("5 - Checkout a movie");
         System.out.println("0 - Quit");
         System.out.println("================================\n");
     }
@@ -46,6 +47,9 @@ public class Librarian {
                 MovieList ml = new MovieList();
                 ml.printMovieList();
                 break;
+            case 5:
+                checkoutMovie();
+                break;
             case 0:
                 System.exit(0);
                 break;
@@ -65,16 +69,37 @@ public class Librarian {
 
         String bookCheckOut = reader.readLine();
 
-            Book b = bookList.getBookList().stream().filter(book -> bookCheckOut.equals(book.getTitle())).findFirst().orElse(null);
-            if (b != null) {
-                b.setFlag(false);
-                System.out.println("The book " + bookCheckOut + " has been checked out!\n");
-                bookList.printBookList();
-            } else {
-                System.out.println("Sorry, couldn't find that book. Try again!");
-            }
-
+        Book b = bookList.getBookList().stream().filter(book -> bookCheckOut.equals(book.getTitle())).findFirst().orElse(null);
+        if (b != null) {
+            b.setFlag(false);
+            System.out.println("The book " + bookCheckOut + " has been checked out!\n");
+            bookList.printBookList();
+        } else {
+            System.out.println("Sorry, couldn't find that book. Try again!");
         }
+
+    }
+
+    public static void checkoutMovie() throws IOException {
+
+        MovieList movieList = new MovieList();
+
+        System.out.println("\nEnter the title of the movie you want to check out:");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String movieCheckOut = reader.readLine();
+
+        Movie m = movieList.getMovieList().stream().filter(movie -> movieCheckOut.equals(movie.getTitle())).findFirst().orElse(null);
+        if (m != null) {
+            m.setFlag(false);
+            System.out.println("The movie " + movieCheckOut + " has been checked out!\n");
+            movieList.printMovieList();
+        } else {
+            System.out.println("Sorry, couldn't find that movie. Try again!");
+        }
+
+    }
 
 
         public static void returnBook () throws IOException {

@@ -14,7 +14,7 @@ public class MovieList {
         Movie movie2 = new Movie(true, "Star Wars", 1970, "George Luccas", 8);
         Movie movie3 = new Movie(true, "O Iluminado", 1965, "Kubrick", 10);
 
-        this.movieList = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
+        this.movieList = new ArrayList<>(Arrays.asList(movie1, movie2, movie3));
     }
 
 

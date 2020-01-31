@@ -13,7 +13,7 @@ public class BookList {
         Book book2 = new Book(true, "A hora da estrela", "Clarice Lispector", "1950");
         Book book3 = new Book(true, "Franny e Zoey", "J.D. Salinger", "1940");
 
-        this.bookList = new ArrayList<Book>(Arrays.asList(book1, book2, book3));
+        this.bookList = new ArrayList<>(Arrays.asList(book1, book2, book3));
     }
 
 

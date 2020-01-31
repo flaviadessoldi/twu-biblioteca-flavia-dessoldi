@@ -2,12 +2,15 @@ package librarian;
 
 import book.Book;
 import book.BookList;
+import costumer.Costumer;
 import movie.Movie;
 import movie.MovieList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Librarian {
@@ -121,6 +124,12 @@ public class Librarian {
             }
 
         }
+
+//        public static void createCostumer(){
+//
+//            Book b = new Book(true,"Harry Potter", "JK Rowling", "1998");
+//            Costumer costumer = new Costumer("Flavia", "123-1234", "banana", new ArrayList<>(Arrays.asList(b)));
+//        }
     }
 
 

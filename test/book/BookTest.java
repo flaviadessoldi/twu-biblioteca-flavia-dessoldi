@@ -12,9 +12,9 @@ public class BookTest {
 
     public void shouldCreateBook(){
 
-        Book book1 = new Book (true,"Harry Potter", "JK Rowling", "1998");
+        Book book = new Book(true,"Harry Potter", "JK Rowling", "1998");
 
-        assertNotNull(book1);
+        assertNotNull(book);
     }
 
 }

@@ -2,6 +2,9 @@ package librarian;
 
 import book.Book;
 import book.BookList;
+import movie.Movie;
+import movie.MovieList;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,9 +21,10 @@ public class Librarian {
         System.out.println("================================");
         System.out.println("           MENU OPTIONS");
         System.out.println("================================\n");
-        System.out.println("1 - List books");
+        System.out.println("1 - List Books");
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
+        System.out.println("4 - List Movies");
         System.out.println("0 - Quit");
         System.out.println("================================\n");
     }
@@ -37,6 +41,10 @@ public class Librarian {
                     break;
             case 3:
                 returnBook();
+                break;
+            case 4:
+                MovieList ml = new MovieList();
+                ml.printMovieList();
                 break;
             case 0:
                 System.exit(0);

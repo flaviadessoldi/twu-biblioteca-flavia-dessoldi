@@ -1,5 +1,7 @@
 package book;
 
+import java.util.Objects;
+
 public class Book {
 
     private boolean flag;
@@ -48,6 +50,22 @@ public class Book {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return getFlag() == book.getFlag() &&
+                getTitle().equals(book.getTitle()) &&
+                Objects.equals(getAuthor(), book.getAuthor()) &&
+                Objects.equals(getYear(), book.getYear());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFlag(), getTitle(), getAuthor(), getYear());
     }
 
     @Override

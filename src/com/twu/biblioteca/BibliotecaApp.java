@@ -14,7 +14,7 @@ public class BibliotecaApp {
 
         lb.welcomeMessage("=ˆ.ˆ= Welcome to Biblioteca! =ˆ.ˆ=\n");
 
-        lb.login();
+//        lb.login();
 
         int option = 1;
         while(option != 0){

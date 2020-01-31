@@ -14,6 +14,7 @@ public class CostumerRepository {
     public CostumerRepository() {
 
         Costumer costumer1 = new Costumer("Flavia", "123-1234", "banana", "flavia@email.com", "555-1234");
+
         this.costumerList = new ArrayList<>(Arrays.asList(costumer1));
     }
 

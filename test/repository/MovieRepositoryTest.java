@@ -1,4 +1,4 @@
-package movie;
+package repository;
 
 import org.junit.After;
 import org.junit.Before;

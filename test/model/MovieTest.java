@@ -1,4 +1,4 @@
-package movie;
+package model;
 
 import model.Movie;
 import org.junit.Test;

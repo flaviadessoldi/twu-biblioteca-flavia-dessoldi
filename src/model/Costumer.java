@@ -23,6 +23,9 @@ public class Costumer {
         this.phoneNumber = phoneNumber;
     }
 
+    public Costumer() {
+    }
+
     public boolean getLogged() {
         return logged;
     }

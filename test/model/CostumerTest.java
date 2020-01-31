@@ -1,4 +1,4 @@
-package costumer;
+package model;
 
 import model.Costumer;
 import org.junit.Test;

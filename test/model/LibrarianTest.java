@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package model;
 
 import model.Book;
 import librarian.Librarian;

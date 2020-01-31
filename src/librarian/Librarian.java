@@ -132,16 +132,22 @@ public class Librarian {
 
         String register = reader.readLine();
 
-        cr.getCostumerList().stream().filter(costumer -> register.equals(costumer.getLibraryNumber())).findFirst().orElse(null);
+       Costumer r = cr.getCostumerList().stream().filter(costumer -> register.equals(costumer.getLibraryNumber())).findFirst().orElse(null);
 
         System.out.println("\nEnter your PassWord: ");
 
         String pass = reader.readLine();
 
+       Costumer p = cr.getCostumerList().stream().filter(costumer -> pass.equals(costumer.getPassword())).findFirst().orElse(null);
 
-            cr.getCostumerList().stream().filter(costumer -> pass.equals(costumer.getPassword())).findFirst().orElse(null);
+        if ( r!= null && p !=null) {
+            p.setLogged(true);
+            System.out.println("\nHello, you are logged in!\n");
+            cr.printCostumer();
+        } else{
+            System.out.println("Sorry, impossible to login! Try again!");
+        }
 
-        System.out.println("\nHello, you are logged in!\n");
     }
 
     }

@@ -105,8 +105,14 @@ public class LibrarianTest {
         }
 
 
+    @Test
+    public void login() throws IOException {
+
+        lb.login();
+
+        assertThat(outContent.toString(), containsString("Hello, you are logged in!"));
 
 
 
-
+    }
 }

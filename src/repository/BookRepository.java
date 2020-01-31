@@ -1,14 +1,16 @@
-package book;
+package repository;
+
+import model.Book;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BookList {
+public class BookRepository {
 
     private List<Book> bookList;
 
-    public BookList() {
+    public BookRepository() {
         Book book1 = new Book(true, "Harry Potter", "JK Rowling", "1998");
         Book book2 = new Book(true, "A hora da estrela", "Clarice Lispector", "1950");
         Book book3 = new Book(true, "Franny e Zoey", "J.D. Salinger", "1940");

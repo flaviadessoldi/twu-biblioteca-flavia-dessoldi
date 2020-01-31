@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import book.Book;
+import model.Book;
 import librarian.Librarian;
 import org.junit.After;
 import org.junit.Before;
@@ -45,6 +45,7 @@ public class LibrarianTest {
     @Test
 
     public void shouldShowMenuOptions(){
+
         lb.showMenuOptions();
 
         assertThat(outContent.toString(), containsString("1 - List books"));

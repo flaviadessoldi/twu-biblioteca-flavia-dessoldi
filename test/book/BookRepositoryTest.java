@@ -3,6 +3,7 @@ package book;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import repository.BookRepository;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -10,7 +11,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
-public class BookListTest {
+public class BookRepositoryTest {
 
 
     private PrintStream sysOut;
@@ -30,9 +31,9 @@ public class BookListTest {
     @Test
     public void shouldShowBookList(){
 
-        BookList bookList = new BookList();
+        BookRepository bookRepository = new BookRepository();
 
-        bookList.printBookList();
+        bookRepository.printBookList();
 
        assertThat(outContent.toString(), containsString("Harry Potter"));
 

@@ -1,9 +1,9 @@
 package movie;
 
-import book.BookList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import repository.MovieRepository;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
-public class MovieListTest {
+public class MovieRepositoryTest {
 
     private PrintStream sysOut;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -30,9 +30,9 @@ public class MovieListTest {
     @Test
     public void shouldShowMovieList(){
 
-        MovieList movieList = new MovieList();
+        MovieRepository movieRepository = new MovieRepository();
 
-        movieList.printMovieList();
+        movieRepository.printMovieList();
 
         assertThat(outContent.toString(), containsString("Moulin Rouge"));
 

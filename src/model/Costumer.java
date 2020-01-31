@@ -1,23 +1,33 @@
-package costumer;
+package model;
 
-import book.Book;
+import repository.CostumerRepository;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Costumer {
 
+    private boolean logged;
     private String name;
     private String libraryNumber;
     private String password;
     private List<Book> costumerBooks;
 
 
-    public Costumer(String name, String libraryNumber, String password, List<Book> costumerBooks) {
+    public Costumer(String name, String libraryNumber, String password) {
         this.name = name;
         this.libraryNumber = libraryNumber;
         this.password = password;
-        this.costumerBooks = costumerBooks;
+
+    }
+
+    public boolean getLogged() {
+        return logged;
+    }
+
+    public void setLogged(boolean logged) {
+        this.logged = logged;
     }
 
     public String getName() {
@@ -50,6 +60,13 @@ public class Costumer {
 
     public void setCostumerBooks(List<Book> costumerBooks) {
         this.costumerBooks = costumerBooks;
+    }
+
+
+
+
+    public boolean verifyLogin(String libraryNumber, String password) {
+        return this.libraryNumber.equals(libraryNumber) && this.password.equals(password);
     }
 
     @Override

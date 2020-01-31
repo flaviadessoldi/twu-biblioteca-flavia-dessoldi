@@ -1,5 +1,6 @@
 package movie;
 
+import model.Movie;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

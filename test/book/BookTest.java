@@ -1,5 +1,6 @@
 package book;
 
+import model.Book;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

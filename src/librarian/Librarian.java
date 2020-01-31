@@ -1,16 +1,15 @@
 package librarian;
 
-import book.Book;
-import book.BookList;
-import costumer.Costumer;
-import movie.Movie;
-import movie.MovieList;
+import model.Book;
+import model.Costumer;
+import repository.BookRepository;
+import model.Movie;
+import repository.CostumerRepository;
+import repository.MovieRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class Librarian {
@@ -37,7 +36,7 @@ public class Librarian {
 
         switch (option) {
             case 1:
-                BookList bk = new BookList();
+                BookRepository bk = new BookRepository();
                 bk.printBookList();
                 break;
             case 2:
@@ -47,7 +46,7 @@ public class Librarian {
                 returnBook();
                 break;
             case 4:
-                MovieList ml = new MovieList();
+                MovieRepository ml = new MovieRepository();
                 ml.printMovieList();
                 break;
             case 5:
@@ -64,7 +63,7 @@ public class Librarian {
 
     public static void checkoutBook() throws IOException {
 
-        BookList bookList = new BookList();
+        BookRepository bookRepository = new BookRepository();
 
         System.out.println("\nEnter the title of the book you want to check out:");
 
@@ -72,11 +71,11 @@ public class Librarian {
 
         String bookCheckOut = reader.readLine();
 
-        Book b = bookList.getBookList().stream().filter(book -> bookCheckOut.equals(book.getTitle())).findFirst().orElse(null);
+        Book b = bookRepository.getBookList().stream().filter(book -> bookCheckOut.equals(book.getTitle())).findFirst().orElse(null);
         if (b != null) {
             b.setFlag(false);
             System.out.println("The book " + bookCheckOut + " has been checked out!\n");
-            bookList.printBookList();
+            bookRepository.printBookList();
         } else {
             System.out.println("Sorry, couldn't find that book. Try again!");
         }
@@ -85,7 +84,7 @@ public class Librarian {
 
     public static void checkoutMovie() throws IOException {
 
-        MovieList movieList = new MovieList();
+        MovieRepository movieRepository = new MovieRepository();
 
         System.out.println("\nEnter the title of the movie you want to check out:");
 
@@ -93,11 +92,11 @@ public class Librarian {
 
         String movieCheckOut = reader.readLine();
 
-        Movie m = movieList.getMovieList().stream().filter(movie -> movieCheckOut.equals(movie.getTitle())).findFirst().orElse(null);
+        Movie m = movieRepository.getMovieList().stream().filter(movie -> movieCheckOut.equals(movie.getTitle())).findFirst().orElse(null);
         if (m != null) {
             m.setFlag(false);
             System.out.println("The movie " + movieCheckOut + " has been checked out!\n");
-            movieList.printMovieList();
+            movieRepository.printMovieList();
         } else {
             System.out.println("Sorry, couldn't find that movie. Try again!");
         }
@@ -106,7 +105,7 @@ public class Librarian {
 
 
         public static void returnBook () throws IOException {
-            BookList bookList = new BookList();
+            BookRepository bookRepository = new BookRepository();
 
             System.out.println("\nEnter the title of the book you want to return: ");
 
@@ -114,23 +113,39 @@ public class Librarian {
 
             String bookReturn = reader.readLine();
 
-            Book b = bookList.getBookList().stream().filter(book -> bookReturn.equals(book.getTitle())).findFirst().orElse(null);
+            Book b = bookRepository.getBookList().stream().filter(book -> bookReturn.equals(book.getTitle())).findFirst().orElse(null);
             if (b != null) {
                 b.setFlag(true);
                 System.out.println("The book " + bookReturn + " has been returned to Biblioteca!\n");
-                bookList.printBookList();
+                bookRepository.printBookList();
             } else {
                 System.out.println("Sorry, this book can't be returned. Try again!");
             }
 
         }
 
-//        public static void createCostumer(){
-//
-//            Book b = new Book(true,"Harry Potter", "JK Rowling", "1998");
-//            Costumer costumer = new Costumer("Flavia", "123-1234", "banana", new ArrayList<>(Arrays.asList(b)));
-//        }
+    public void login() throws IOException {
+        CostumerRepository cr = new CostumerRepository();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("\nEnter your Library Register: ");
+
+        String register = reader.readLine();
+
+        cr.getCostumerList().stream().filter(costumer -> register.equals(costumer.getLibraryNumber())).findFirst().orElse(null);
+
+        System.out.println("\nEnter your PassWord: ");
+
+        String pass = reader.readLine();
+
+
+            cr.getCostumerList().stream().filter(costumer -> pass.equals(costumer.getPassword())).findFirst().orElse(null);
+
+        System.out.println("\nHello, you are logged in!\n");
     }
+
+    }
+
 
 
 

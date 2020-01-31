@@ -1,15 +1,17 @@
-package movie;
+package repository;
 
+
+import model.Movie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MovieList {
+public class MovieRepository {
 
     private List<Movie> movieList;
 
-    public MovieList() {
+    public MovieRepository() {
         Movie movie1 = new Movie(true, "Moulin Rouge", 1998, "Baz Luhrman", 8);
         Movie movie2 = new Movie(true, "Star Wars", 1970, "George Luccas", 8);
         Movie movie3 = new Movie(true, "O Iluminado", 1965, "Kubrick", 10);

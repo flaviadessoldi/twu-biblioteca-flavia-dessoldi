@@ -49,41 +49,44 @@ public class Librarian {
 
     public static void checkoutBook() throws IOException {
 
-        BookList bk = new BookList();
+        BookList bookList = new BookList();
 
         System.out.println("\nEnter the title of the book you want to check out:");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        String bookCheck = reader.readLine();
+        String bookCheckOut = reader.readLine();
 
-            Book b = bk.getBookList().stream().filter(book -> bookCheck.toString().equals(book.getTitle().toString())).findFirst().orElse(null);
-            b.setFlag(false);
-            System.out.println("The book " + bookCheck + " has been checked out!\n");
-            bk.printBookList();
-
+            Book b = bookList.getBookList().stream().filter(book -> bookCheckOut.equals(book.getTitle())).findFirst().orElse(null);
+            if (b != null) {
+                b.setFlag(false);
+                System.out.println("The book " + bookCheckOut + " has been checked out!\n");
+                bookList.printBookList();
+            } else {
+                System.out.println("Sorry, couldn't find that book. Try again!");
+            }
 
         }
 
 
-
-
-
         public static void returnBook () throws IOException {
-            BookList bk = new BookList();
+            BookList bookList = new BookList();
 
             System.out.println("\nEnter the title of the book you want to return: ");
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            String bookCheck = reader.readLine();
+            String bookReturn = reader.readLine();
 
-            Book b = bk.getBookList().stream().filter(book -> bookCheck.toString().equals(book.getTitle().toString())).findFirst().orElse(null);
+            Book b = bookList.getBookList().stream().filter(book -> bookReturn.equals(book.getTitle())).findFirst().orElse(null);
+            if (b != null) {
+                b.setFlag(true);
+                System.out.println("The book " + bookReturn + " has been returned to Biblioteca!\n");
+                bookList.printBookList();
+            } else {
+                System.out.println("Sorry, this book can't be returned. Try again!");
+            }
 
-            b.setFlag(true);
-
-            System.out.println("The book " + bookCheck + " has been returned to Biblioteca!\n");
-            bk.printBookList();
         }
     }
 

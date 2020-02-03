@@ -1,7 +1,6 @@
 package model;
 
-import model.Book;
-import librarian.Librarian;
+import menu.Menu;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +12,9 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
-public class LibrarianTest {
+public class MenuTest {
 
-    Librarian lb = new Librarian();
+    Menu menu = new Menu();
     Book bk = new Book();
 
     private PrintStream sysOut;
@@ -36,7 +35,7 @@ public class LibrarianTest {
     public void shouldShowWelcomeMessage(){
 
 
-        lb.welcomeMessage("Welcome to Biblioteca!");
+        menu.welcomeMessage("Welcome to Biblioteca!");
 
         assertEquals(outContent.toString(), "Welcome to Biblioteca!");
 
@@ -46,7 +45,7 @@ public class LibrarianTest {
 
     public void shouldShowMenuOptions(){
 
-        lb.showMenuOptions();
+        menu.showMenuOptions();
 
         assertThat(outContent.toString(), containsString("1 - List books"));
 
@@ -56,7 +55,7 @@ public class LibrarianTest {
     @Test
     public void shouldSelectCorrectOption() throws IOException {
 
-        lb.chooseOption(1);
+        menu.chooseOption(1);
 
         assertThat(outContent.toString(), containsString("Author"));
 
@@ -66,7 +65,7 @@ public class LibrarianTest {
     @Test
     public void shouldShowMessageWhenChooseInvalidOption() throws IOException {
 
-        lb.chooseOption(8);
+        menu.chooseOption(8);
 
         assertThat(outContent.toString(), containsString("Select a valid option!"));
 
@@ -76,7 +75,7 @@ public class LibrarianTest {
     @Test
     public void shouldQuitApplicationWhenChooseZero() throws IOException {
 
-       lb.chooseOption(0);
+       menu.chooseOption(0);
 
         System.exit(0);
 
@@ -86,7 +85,7 @@ public class LibrarianTest {
     public void shouldCheckoutBook() throws IOException {
 
 
-        lb.checkoutBook();
+        menu.checkoutBook();
 
 
         assertThat(outContent.toString(), containsString("checked out!"));
@@ -96,7 +95,7 @@ public class LibrarianTest {
         public void shouldCheckoutMovie() throws IOException {
 
 
-            lb.checkoutMovie();
+            menu.checkoutMovie();
 
 
 
@@ -108,7 +107,7 @@ public class LibrarianTest {
     @Test
     public void login() throws IOException {
 
-        lb.login();
+        menu.login();
 
         assertThat(outContent.toString(), containsString("Hello, you are logged in!"));
 

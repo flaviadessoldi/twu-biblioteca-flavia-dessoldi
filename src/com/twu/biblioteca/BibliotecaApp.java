@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
-import librarian.Librarian;
+import menu.Menu;
+import model.Librarian;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,19 +11,19 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
 
 
-        Librarian lb = new Librarian();
+        Menu menu = new Menu();
 
-        lb.welcomeMessage("=ˆ.ˆ= Welcome to Biblioteca! =ˆ.ˆ=\n");
+        menu.welcomeMessage("=ˆ.ˆ= Welcome to Biblioteca! =ˆ.ˆ=\n");
 
 //        lb.login();
 
         int option = 1;
         while(option != 0){
-            lb.showMenuOptions();
+            menu.showMenuOptions();
             System.out.println("Please, choose your option. ");
             Scanner scanner = new Scanner(System.in);
             option = scanner.nextInt();
-            lb.chooseOption(option);
+            menu.chooseOption(option);
         }
 
 

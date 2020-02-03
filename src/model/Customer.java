@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 import java.util.Objects;
 
-public class Costumer {
+public class Customer {
 
     private boolean logged;
     private String name;
@@ -11,10 +11,10 @@ public class Costumer {
     private String password;
     private String email;
     private String phoneNumber;
-    private List<Book> costumerBooks;
+    private List<Book> customerBooks;
 
 
-    public Costumer(String name, String libraryNumber, String password, String email, String phoneNumber) {
+    public Customer(String name, String libraryNumber, String password, String email, String phoneNumber) {
         this.name = name;
         this.libraryNumber = libraryNumber;
         this.password = password;
@@ -23,7 +23,7 @@ public class Costumer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Costumer() {
+    public Customer() {
     }
 
     public boolean getLogged() {
@@ -73,43 +73,43 @@ public class Costumer {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Book> getCostumerBooks() {
-        return costumerBooks;
+    public List<Book> getCustomerBooks() {
+        return customerBooks;
     }
 
-    public void setCostumerBooks(List<Book> costumerBooks) {
-        this.costumerBooks = costumerBooks;
+    public void setCustomerBooks(List<Book> custumerBooks) {
+        this.customerBooks = custumerBooks;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Costumer)) return false;
-        Costumer costumer = (Costumer) o;
-        return getLogged() == costumer.getLogged() &&
-                Objects.equals(getName(), costumer.getName()) &&
-                getLibraryNumber().equals(costumer.getLibraryNumber()) &&
-                Objects.equals(getPassword(), costumer.getPassword()) &&
-                Objects.equals(email, costumer.email) &&
-                Objects.equals(getPhoneNumber(), costumer.getPhoneNumber()) &&
-                Objects.equals(getCostumerBooks(), costumer.getCostumerBooks());
+        if (!(o instanceof Customer)) return false;
+        Customer customer = (Customer) o;
+        return getLogged() == customer.getLogged() &&
+                Objects.equals(getName(), customer.getName()) &&
+                getLibraryNumber().equals(customer.getLibraryNumber()) &&
+                Objects.equals(getPassword(), customer.getPassword()) &&
+                Objects.equals(email, customer.email) &&
+                Objects.equals(getPhoneNumber(), customer.getPhoneNumber()) &&
+                Objects.equals(getCustomerBooks(), customer.getCustomerBooks());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getLogged(), getName(), getLibraryNumber(), getPassword(), email, getPhoneNumber(), getCostumerBooks());
+        return Objects.hash(getLogged(), getName(), getLibraryNumber(), getPassword(), email, getPhoneNumber(), getCustomerBooks());
     }
 
     @Override
     public String toString() {
-        return "Costumer{" +
+        return "Customer{" +
                 "logged=" + logged +
                 ", name='" + name + '\'' +
                 ", libraryNumber='" + libraryNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", costumerBooks=" + costumerBooks +
+                ", customerBooks=" + customerBooks +
                 '}';
     }
 }

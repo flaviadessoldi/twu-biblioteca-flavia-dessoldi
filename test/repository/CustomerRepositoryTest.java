@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
-public class CostumerRepositoryTest {
+public class CustomerRepositoryTest {
 
     private PrintStream sysOut;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -29,11 +29,11 @@ public class CostumerRepositoryTest {
     @Test
     public void shouldShowMovieList(){
 
-        CostumerRepository costumerRepository = new CostumerRepository();
+        CustomerRepository customerRepository = new CustomerRepository();
 
-        costumerRepository.printCostumer();
+        customerRepository.printCostumer();
 
-        assertThat(outContent.toString(), containsString("COSTUMER INFORMATION"));
+        assertThat(outContent.toString(), containsString("CUSTOMER INFORMATION"));
 
     }
 

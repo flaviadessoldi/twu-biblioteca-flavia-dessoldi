@@ -1,10 +1,11 @@
-package librarian;
+package menu;
 
 import model.Book;
-import model.Costumer;
-import repository.BookRepository;
+import model.Customer;
+import model.Librarian;
 import model.Movie;
-import repository.CostumerRepository;
+import repository.BookRepository;
+import repository.CustomerRepository;
 import repository.MovieRepository;
 
 import java.io.BufferedReader;
@@ -13,8 +14,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
-public class Librarian {
+public class Menu {
 
     public static void welcomeMessage(String message) {
 
@@ -31,6 +31,7 @@ public class Librarian {
         System.out.println("4 - List Movies");
         System.out.println("5 - Checkout a movie");
         System.out.println("6 - Return a movie");
+        System.out.println("7 - Login as Librarian");
         System.out.println("0 - Quit");
         System.out.println("================================\n");
     }
@@ -43,12 +44,12 @@ public class Librarian {
                 bk.printBookList();
                 break;
             case 2:
-                    checkoutBook();
+                checkoutBook();
 
                 break;
             case 3:
                 login();
-                    returnBook();
+                returnBook();
                 break;
             case 4:
                 MovieRepository ml = new MovieRepository();
@@ -62,6 +63,9 @@ public class Librarian {
                 login();
                 returnMovie();
                 break;
+            case 7:
+                loginLibrarian();
+                break;
             case 0:
                 System.exit(0);
                 break;
@@ -74,7 +78,7 @@ public class Librarian {
     public static void checkoutBook() throws IOException {
 
         BookRepository bookRepository = new BookRepository();
-        Costumer costumer = new Costumer();
+        Customer customer = new Customer();
 
         System.out.println("\nEnter the title of the book you want to check out:");
 
@@ -88,9 +92,9 @@ public class Librarian {
             b.setFlag(false);
             System.out.println("\nThe book " + bookCheckOut + " has been checked out!\n");
             bookRepository.printBookList();
-            costumer.setCostumerBooks(new ArrayList<>(Arrays.asList(b)));
+            customer.setCustomerBooks(new ArrayList<>(Arrays.asList(b)));
 
-            System.out.println("\nYour current checked out books are: " + costumer.getCostumerBooks().toString());
+            System.out.println("\nYour current checked out books are: " + customer.getCustomerBooks().toString());
         } else {
             System.out.println("\nSorry, couldn't find that book. Try again!");
         }
@@ -119,25 +123,25 @@ public class Librarian {
     }
 
 
-        public static void returnBook () throws IOException {
-            BookRepository bookRepository = new BookRepository();
+    public static void returnBook () throws IOException {
+        BookRepository bookRepository = new BookRepository();
 
-            System.out.println("\nEnter the title of the book you want to return: ");
+        System.out.println("\nEnter the title of the book you want to return: ");
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            String bookReturn = reader.readLine();
+        String bookReturn = reader.readLine();
 
-            Book b = bookRepository.getBookList().stream().filter(book -> bookReturn.equals(book.getTitle())).findFirst().orElse(null);
-            if (b != null) {
-                b.setFlag(true);
-                System.out.println("The book " + bookReturn + " has been returned to Biblioteca!\n");
-                bookRepository.printBookList();
-            } else {
-                System.out.println("Sorry, this book can't be returned. Try again!");
-            }
-
+        Book b = bookRepository.getBookList().stream().filter(book -> bookReturn.equals(book.getTitle())).findFirst().orElse(null);
+        if (b != null) {
+            b.setFlag(true);
+            System.out.println("The book " + bookReturn + " has been returned to Biblioteca!\n");
+            bookRepository.printBookList();
+        } else {
+            System.out.println("Sorry, this book can't be returned. Try again!");
         }
+
+    }
 
     public static void returnMovie () throws IOException {
         MovieRepository movieRepository = new MovieRepository();
@@ -160,37 +164,52 @@ public class Librarian {
     }
 
     public static void login() throws IOException {
-        CostumerRepository cr = new CostumerRepository();
+
+        CustomerRepository cr = new CustomerRepository();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("\nEnter your Library Register: ");
 
         String register = reader.readLine();
 
-       Costumer r = cr.getCostumerList().stream().filter(costumer -> register.equals(costumer.getLibraryNumber())).findFirst().orElse(null);
+        Customer r = cr.getCustomerList().stream().filter(customer -> register.equals(customer.getLibraryNumber())).findFirst().orElse(null);
 
         System.out.println("\nEnter your PassWord: ");
 
         String pass = reader.readLine();
 
-       Costumer p = cr.getCostumerList().stream().filter(costumer -> pass.equals(costumer.getPassword())).findFirst().orElse(null);
+        Customer p = cr.getCustomerList().stream().filter(customer -> pass.equals(customer.getPassword())).findFirst().orElse(null);
 
         if ( r!= null && p !=null) {
             p.setLogged(true);
             System.out.println("\nHello, you are logged in!\n");
-           cr.printCostumer();
+            cr.printCostumer();
         } else{
             System.out.println("Sorry, impossible to login! Try again!");
         }
 
     }
 
+    public static void loginLibrarian() throws IOException {
+
+
+        Librarian lr = new Librarian("123");
+
+        CustomerRepository cr = new CustomerRepository();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("\nEnter your password: ");
+
+        String password = reader.readLine();
+
+        if ( password!= null && password.equals(lr.getPassword())) {
+            lr.isLogged();
+            System.out.println(cr.getCustomerList().toString());
+            System.out.println("\nHello, you are logged in!\n");
+            ;
+        } else{
+            System.out.println("Sorry, impossible to login! Try again!");
+        }
+
     }
-
-
-
-
-
-
-
-
+}

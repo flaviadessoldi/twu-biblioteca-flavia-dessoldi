@@ -5,22 +5,36 @@ import java.util.Objects;
 public class Movie {
 
     private boolean flag;
+    private String id;
     private String title;
     private int year;
     private String director;
     private int rate;
 
-    public Movie(boolean flag, String title, int year, String director, int rate) {
+    public Movie(boolean flag, String id, String title, int year, String director, int rate) {
         this.flag = flag;
+        this.id = id;
         this.title = title;
         this.year = year;
         this.director = director;
         this.rate = rate;
     }
 
+    public Movie() {
+    }
+
     public boolean getFlag() {
         return flag;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public void setFlag(boolean flag) {
         this.flag = flag;
@@ -78,9 +92,9 @@ public class Movie {
     public String toString() {
         return
                 "Title='" + title + " | " +
-                "Year=" + year +  " | " +
-                "Director='" + director + " | " +
-                "Rate=" + rate;
+                        "Year=" + year + " | " +
+                        "Director='" + director + " | " +
+                        "Rate=" + rate;
     }
 
 

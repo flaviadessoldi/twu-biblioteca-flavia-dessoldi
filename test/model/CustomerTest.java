@@ -9,9 +9,7 @@ public class CustomerTest {
     @Test
     public void shouldCreateMovie(){
 
-
-
-        Customer customer = new Customer("Flavia", "123-1234", "banana", "flavia@email.com", "555-1234");
+        Customer customer = new Customer(false,"Flavia", "banana", "flavia@email.com", "555-1234");
 
         assertEquals(customer.getName(), "Flavia");
     }

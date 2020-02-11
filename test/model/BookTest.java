@@ -1,6 +1,5 @@
 package model;
 
-import model.Book;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,7 +12,7 @@ public class BookTest {
 
     public void shouldCreateBook(){
 
-        Book book = new Book(true,"Harry Potter", "JK Rowling", "1998");
+        Book book = new Book(true, "1", "Harry Potter", "JK Rowling", "1998");
 
         assertNotNull(book);
     }

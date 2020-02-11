@@ -2,17 +2,13 @@ package repository;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
-import repository.BookRepository;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.assertThat;
+public class UserRepositoryTest {
 
-public class BookRepositoryTest {
-
+    UserRepository userRepository = new UserRepository();
 
     private PrintStream sysOut;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -28,14 +24,8 @@ public class BookRepositoryTest {
         System.setOut(sysOut);
     }
 
-    @Test
-    public void shouldShowBookList(){
 
-        BookRepository bookRepository = new BookRepository();
 
-        bookRepository.printBookList();
 
-       assertThat(outContent.toString(), containsString("Harry Potter"));
 
-    }
 }

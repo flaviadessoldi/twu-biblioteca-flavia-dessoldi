@@ -5,18 +5,20 @@ import java.util.Objects;
 public class Book {
 
     private boolean flag;
+    private String id;
     private String title;
     private String author;
     private String year;
 
-    public Book(boolean flag, String title, String author, String year) {
+    public Book(boolean flag, String id, String title, String author, String year) {
         this.flag = flag;
+        this.id = id;
         this.title = title;
         this.author = author;
         this.year = year;
     }
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -24,8 +26,18 @@ public class Book {
         return flag;
     }
 
+
     public void setFlag(boolean flag) {
         this.flag = flag;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -73,10 +85,9 @@ public class Book {
         return
 
                 "Title: " + title + " | " +
-                "Author: " + author + " | " +
-                "Year: " + year + "\n";
+                        "Author: " + author + " | " +
+                        "Year: " + year + "\n";
     }
-
 
 
 }

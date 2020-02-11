@@ -14,11 +14,10 @@ public class Customer {
     private List<Book> customerBooks;
 
 
-    public Customer(String name, String libraryNumber, String password, String email, String phoneNumber) {
+    public Customer(boolean logged, String name, String password, String email, String phoneNumber) {
+        this.logged = logged;
         this.name = name;
-        this.libraryNumber = libraryNumber;
         this.password = password;
-
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
@@ -57,6 +56,7 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getEmail() {
         return email;
     }
